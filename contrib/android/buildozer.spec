@@ -1,13 +1,13 @@
 [app]
 
 # (str) Title of your application
-title = Electrum
+title = Electrum LitecoinFinance
 
 # (str) Package name
-package.name = Electrum
+package.name = Electrum_LTFN
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.electrum
+package.domain = org.electrum_ltfn
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -112,7 +112,7 @@ android.add_src = electrum/gui/kivy/data/java-classes/
 
 android.gradle_dependencies = me.dm7.barcodescanner:zxing:1.9.8
 
-android.add_activities = org.electrum.qr.SimpleScannerActivity
+android.add_activities = org.electrum_ltfn.qr.SimpleScannerActivity
 
 # (str) python-for-android branch to use, if not master, useful to try
 # not yet merged features.
@@ -140,7 +140,7 @@ android.manifest.launch_mode = singleTask
 
 # (str) The Android arch to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
 # note: can be overwritten by APP_ANDROID_ARCH env var
-android.arch = armeabi-v7a
+#android.arch = armeabi-v7a
 
 # (list) Android application meta-data to set (key=value format)
 #android.meta_data =

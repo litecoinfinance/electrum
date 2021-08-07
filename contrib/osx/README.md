@@ -59,10 +59,16 @@ Move `prebuilt_qr` to El Capitan: `contrib/osx/CalinsQRReader/prebuilt_qr`.
 
 #### 2. Build Electrum
 
-    cd electrum
+    cd electrum-ltfn
     ./contrib/osx/make_osx
 
-This creates both a folder named Electrum.app and the .dmg file.
+
+#### Important for pass error
+     error: implicit declaration of function
+     use
+     export CFLAGS='-Wno-implicit-function-declaration'
+
+This creates both a folder named Electrum-LTFN.app and the .dmg file.
 
 If you want the binaries codesigned for MacOS and notarised by Apple's central server,
 provide these env vars to the `make_osx` script:

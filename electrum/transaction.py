@@ -89,7 +89,7 @@ class MissingTxInputAmount(Exception):
 
 
 SIGHASH_ALL = 1
-
+SIGHASH_FORKID = 0x2A40
 
 class TxOutput:
     scriptpubkey: bytes
@@ -1851,9 +1851,9 @@ class PartialTransaction(Transaction):
         inputs = self.inputs()
         outputs = self.outputs()
         txin = inputs[txin_index]
-        sighash = txin.sighash if txin.sighash is not None else SIGHASH_ALL
-        if sighash != SIGHASH_ALL:
-            raise Exception("only SIGHASH_ALL signing is supported!")
+        sighash = txin.sighash if txin.sighash is not None else SIGHASH_ALL | SIGHASH_FORKID
+        if sighash != SIGHASH_ALL | SIGHASH_FORKID:
+            raise Exception("only SIGHASH_ALL | SIGHASH_FORKID signing is supported!")
         nHashType = int_to_hex(sighash, 4)
         preimage_script = self.get_preimage_script(txin)
         if txin.is_segwit():
@@ -1899,7 +1899,7 @@ class PartialTransaction(Transaction):
                                                        bip143_shared_txdigest_fields=bip143_shared_txdigest_fields)))
         privkey = ecc.ECPrivkey(privkey_bytes)
         sig = privkey.sign_transaction(pre_hash)
-        sig = bh2u(sig) + '01'  # SIGHASH_ALL
+        sig = bh2u(sig) + '41' # SIGHASH_ALL | SIGHASH_FORKID
         return sig
 
     def is_complete(self) -> bool:
