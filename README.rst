@@ -102,6 +102,11 @@ Finally, to start Electrum::
 
 
 
+How show hidden folders at mac ?
+
+$ defaults write com.apple.Finder AppleShowAllFiles true
+$ killall Finder
+
 Creating Binaries
 =================
 
