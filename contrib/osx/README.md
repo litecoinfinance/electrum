@@ -56,6 +56,15 @@ On newer Mac, run:
 
 Move `prebuilt_qr` to El Capitan: `contrib/osx/CalinsQRReader/prebuilt_qr`.
 
+#### 1.c Install brew and build tools
+
+Put to terminall
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    brew install autoconf automake libtool
+
+
 
 #### 2. Build Electrum
 
